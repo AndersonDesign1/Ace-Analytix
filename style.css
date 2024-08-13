@@ -1,11 +1,12 @@
+/* Reset default margin and padding */
 body, html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     height: 100%;
-    overflow: hidden;
+    overflow: hidden; /* Prevent scrolling */
 }
 
+/* Navbar styles */
 .nav-sect {
     display: flex;
     width: 100%;
@@ -14,31 +15,38 @@ body, html {
     gap: 385px;
     flex-shrink: 0;
     background: #fff;
+    margin-bottom: 0;
+    padding-bottom: 10px;
 }
 
+/* Navbar image styles */
 .nav-sect img {
     height: 48px;
     flex-shrink: 0;
-    margin-left: 15px;
+    padding-left: 15px;
     align-self: stretch;
 }
-/* Ensure the section takes up the full width and height */
+
+/* The section takes up the full viewport height */
 .vid-sect {
     width: 100%;
-    height: 100vh; /* Full viewport height */
-    overflow: hidden;
+    height: calc(100vh - 89px); /* Full viewport height minus navbar height */
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-/* Make the video container responsive */
+/* Video container should be responsive */
 .vid-container {
-        width: 100%;
-        height: 100%; /* Full height of the parent section */
-        position: relative;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
-/* Ensure the video scales correctly */
+/* Ensure the video scales correctly and covers the container */
 .vid-container video {
     width: 100%;
     height: 100%;
@@ -46,14 +54,15 @@ body, html {
     object-position: center; /* Center the video content */
 }
 
+/* Media Query for Tablets and Small Screens */
 @media (max-width: 768px) {
     .vid-sect {
-        height: 50vh; /* Reduce the height on smaller screens */
+        height: calc(100vh - 89px); /* Keep full viewport height minus navbar height */
     }
 }
 
 @media (max-width: 480px) {
     .vid-sect {
-        height: 30vh; /* Even smaller height for very small screens */
+        height: calc(100vh - 89px); /* Keep full viewport height minus navbar height */
     }
 }
